@@ -1,6 +1,8 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+<p style="font-weight: bold; color: #333; font-size: 18px;">Total Posts: {{ post_count }}</p>
+
     {% for post in posts %}
         <article class="post">
             <time class="date">
@@ -8,6 +10,9 @@
             </time>
             <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
             <p>{{ post.text|linebreaksbr }}</p>
+            
         </article>
+        
     {% endfor %}
+   
 {% endblock %}
